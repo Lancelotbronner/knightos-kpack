@@ -1,12 +1,7 @@
-#ifndef INC_COM
-#define INC_COM
+#pragma once
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdint.h>
-#include <ctype.h>
-#include <string.h>
-#include <dirent.h>
 
 // This file is only valid for the revision 0 of the KPKG format
 #define KPKG_FORMAT_VERSION 0
@@ -33,9 +28,7 @@ typedef struct {
 	char *rootName;
 	FILE *output;
 	int fileNb;
-	//
 	// Package
-	//
 	char *pkgname;
 	char *repo;
 	versionData version;
@@ -79,6 +72,5 @@ enum {
 	SUM_MD5
 };
 
-extern void displayUsage();
+void displayUsage();
 extern packagerData packager;
-#endif

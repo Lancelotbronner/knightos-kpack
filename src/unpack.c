@@ -1,14 +1,14 @@
 #include "unpack.h"
+
 #include "common.h"
-#include <stdio.h>
+
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
 #include <sys/stat.h>
 #include <errno.h>
 #include <libgen.h>
 
-#if (defined(_WIN32) || defined(__WIN32__))
+#if defined(_WIN32) || defined(__WIN32__)
 #define mkdir(A, B) mkdir(A)
 #endif
 
@@ -132,7 +132,7 @@ void unpack(FILE *file, const char *root, int write_stub) {
 		/* Get the path for mkpath */
 		char *dir = calloc(strlen(path) + 1, sizeof(char));
 		strcpy(dir, path);
-		int i;
+		size_t i;
 		for (i = strlen(dir); i >= 0; --i) {
 			if (dir[i] == '/') {
 				dir[i] = '\0';

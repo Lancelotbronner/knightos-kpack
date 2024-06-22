@@ -1,9 +1,13 @@
-#include <errno.h>
-#include <sys/stat.h>
+#include "packager.h"
 
 #include "common.h"
 #include "checksums.h"
 #include "version.h"
+
+#include <errno.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
 
 void initRuntime() {
 	packager.config = NULL;
@@ -289,11 +293,12 @@ void writeFileToPackage(char *f, char *relpath) {
 	char *filename = relpath;
 	uint16_t crcsum;
 	// Uncompressed then compressed size
-	int usize = 0, csize = 0, c;
+	size_t usize = 0, csize = 0;
+	int c;
 	FILE *in = fopen(f, "rb");
-	int plen = strlen(filename);
-	
-	fputc(plen, packager.output);
+	size_t plen = strlen(filename);
+
+	fputc((int)plen, packager.output);
 	fputs(filename, packager.output);
 	fputc(packager.compressionType, packager.output);
 	
@@ -365,9 +370,9 @@ void writeModelRecursive(DIR *root, char *rootName, char* top, struct dirent *cu
 	DIR *rroot;
 	struct dirent *rentry;
 	struct stat s;
-	int rrootNameL;
+	size_t rrootNameL;
 	char *rrootName;
-	int rfilenameL;
+	size_t rfilenameL;
 	char *rfilename;
 	
 	while (currentEntry) {
@@ -422,7 +427,7 @@ void writeModelRecursive(DIR *root, char *rootName, char* top, struct dirent *cu
 }
 
 void writeModel(DIR *root, char *rootName) {
-	int fileNbLocation;
+	size_t fileNbLocation;
 	struct dirent *currentEntry;
 	
 	// Reserve one byte for the number of files

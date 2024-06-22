@@ -1,8 +1,5 @@
-#ifndef UNPACK_H
-#define UNPACK_H
+#pragma once
 
 #include <stdio.h>
 
 void unpack(FILE *file, const char *root, int pack);
-
-#endif

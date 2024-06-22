@@ -1,10 +1,10 @@
-#include "common.h"
-#include <string.h>
+#include "checksums.h"
 
 uint16_t calculateCRC16(FILE *in) {
 	uint16_t crcVal = 0xffff;
-	int b, c, backupSize = ftell(in);
-    
+	int b, c;
+	size_t backupSize = ftell(in);
+
 	fseek(in, 0, SEEK_SET);
 	
 	while ((c = fgetc(in)) != EOF) {

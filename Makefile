@@ -1,6 +1,6 @@
 # compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -pedantic -std=c99 -g -O2
+CFLAGS = -Wall -Wextra -pedantic -std=c23 -g -O2
 
 # paths
 PREFIX = /usr/local

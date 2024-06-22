@@ -1,6 +1,6 @@
-#ifndef INC_CHKSUM
-#define INC_CHKSUM
+#pragma once
 
-extern uint16_t calculateCRC16(FILE *in);
+#include <stdint.h>
+#include <stdio.h>
 
-#endif
+uint16_t calculateCRC16(FILE *in);

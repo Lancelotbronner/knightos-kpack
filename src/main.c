@@ -2,6 +2,9 @@
 #include "packager.h"
 #include "unpack.h"
 
+#include <stdlib.h>
+#include <string.h>
+
 packagerData packager;
 
 void displayUsage() {
@@ -102,11 +105,11 @@ int main(int argc, char **argv) {
 		fputc(packager.mdlen, packager.output);
 		// Package name
 		fputc(KEY_PKG_NAME, packager.output);
-		fputc(strlen(packager.pkgname), packager.output);
+		fputc((int)strlen(packager.pkgname), packager.output);
 		fputs(packager.pkgname, packager.output);
 		// Package repo
 		fputc(KEY_PKG_REPO, packager.output);
-		fputc(strlen(packager.repo), packager.output);
+		fputc((int)strlen(packager.repo), packager.output);
 		fputs(packager.repo, packager.output);
 		// Package version
 		fputc(KEY_PKG_VERSION, packager.output);
@@ -118,35 +121,35 @@ int main(int argc, char **argv) {
 		// Package description
 		if(packager.description) {
 			fputc(KEY_PKG_DESCRIPTION, packager.output);
-			fputc(strlen(packager.description), packager.output);
+			fputc((int)strlen(packager.description), packager.output);
 			fputs(packager.description, packager.output);
 			free(packager.description);
 		}
 		// Package's author
 		if(packager.author) {
 			fputc(KEY_PKG_AUTHOR, packager.output);
-			fputc(strlen(packager.author), packager.output);
+			fputc((int)strlen(packager.author), packager.output);
 			fputs(packager.author, packager.output);
 			free(packager.author);
 		}
 		// Package's maintainer
 		if(packager.maintainer) {
 			fputc(KEY_PKG_MAINTAINER, packager.output);
-			fputc(strlen(packager.maintainer), packager.output);
+			fputc((int)strlen(packager.maintainer), packager.output);
 			fputs(packager.maintainer, packager.output);
 			free(packager.maintainer);
 		}
 		// Package's copyright
 		if(packager.copyright) {
 			fputc(KEY_PKG_COPYRIGHT, packager.output);
-			fputc(strlen(packager.copyright), packager.output);
+			fputc((int)strlen(packager.copyright), packager.output);
 			fputs(packager.copyright, packager.output);
 			free(packager.copyright);
 		}
 		// Package's info URL
 		if(packager.infourl) {
 			fputc(KEY_INFO_URL, packager.output);
-			fputc(strlen(packager.infourl), packager.output);
+			fputc((int)strlen(packager.infourl), packager.output);
 			fputs(packager.infourl, packager.output);
 			free(packager.infourl);
 		}
@@ -165,7 +168,7 @@ int main(int argc, char **argv) {
 				fputc(packager.dependencies[i]->version.major, packager.output);
 				fputc(packager.dependencies[i]->version.minor, packager.output);
 				fputc(packager.dependencies[i]->version.patch, packager.output);
-				fputc(strlen(packager.dependencies[i]->name), packager.output);
+				fputc((int)strlen(packager.dependencies[i]->name), packager.output);
 				fputs(packager.dependencies[i]->name, packager.output);
 			}
 		}
