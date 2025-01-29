@@ -1,9 +1,2 @@
-*.swp
-*.o
-bin/
-*.rom
-temp/
-*.1
-*.5
 .build
 .swiftpm

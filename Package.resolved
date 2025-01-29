@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "klib2",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lancelotbronner/klib2.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6135eb0e50d12698888539af2842f333e94bf9af"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "0fbc8848e389af3bb55c182bc19ca9d5dc2f255b",
+        "version" : "1.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}
