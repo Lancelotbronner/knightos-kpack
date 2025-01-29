@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "klib2",
+      "identity" : "knightos-klib",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/lancelotbronner/klib2.git",
+      "location" : "https://github.com/lancelotbronner/knightos-klib.git",
       "state" : {
         "branch" : "main",
-        "revision" : "6135eb0e50d12698888539af2842f333e94bf9af"
+        "revision" : "71d4f60ac3838d24ae3ade53af7f9bf194822e1a"
       }
     },
     {

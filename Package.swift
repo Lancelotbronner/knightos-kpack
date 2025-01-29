@@ -13,10 +13,12 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.4.0"),
-		.package(url: "https://github.com/lancelotbronner/klib2.git", branch: "main"),
+		.package(url: "https://github.com/lancelotbronner/knightos-klib.git", branch: "main"),
 	],
 	targets: [
-		.target(name: "PackageArchive", dependencies: ["klib2"]),
+		.target(name: "PackageArchive", dependencies: [
+			.product(name: "klib2", package: "knightos-klib"),
+		]),
 		.executableTarget(name: "kpkg", dependencies: [
 			.product(name: "ArgumentParser", package: "swift-argument-parser"),
 			"PackageArchive",
